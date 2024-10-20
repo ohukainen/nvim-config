@@ -1,1 +1,2 @@
-require("ohukainen")
+require('general')
+require('plugin.lazy')
