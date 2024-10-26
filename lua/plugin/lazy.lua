@@ -13,8 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- Personal favorites
   require('config.harpoon'),
-  { 'mbbill/undotree', config = function() vim.keymap.set("n", "<leader>n", vim.cmd.UndotreeToggle) end },
-  { 'tpope/vim-fugitive', config = function() vim.keymap.set("n", "<leader>g", ":Git ") end },
+  { 'mbbill/undotree', config = function() vim.keymap.set('n', '<leader>n', vim.cmd.UndotreeToggle) end },
+  { 'tpope/vim-fugitive', config = function() vim.keymap.set('n', '<leader>g', ':Git ') end },
 
   -- Telescope
   require('config.telescope'),
@@ -30,7 +30,6 @@ require('lazy').setup({
 
   -- Colorscheme
   require('config.colorscheme'),
-  'tomasr/molokai',
 
   -- Other
   { 'lewis6991/gitsigns.nvim', signcolumn = false },
