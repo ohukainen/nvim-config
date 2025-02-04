@@ -19,11 +19,12 @@ require('lazy').setup({
   -- Telescope
   require('config.telescope'),
 
-  -- LSP & Autocomplete
+  -- LSP, Autocomplete and linting
   { 'folke/lazydev.nvim', ft = 'lua', opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } }, }, }, },
   { 'Bilal2453/luvit-meta', lazy = true },
   require('config.lsp'),
   require('config.autocomplete'),
+  require('config.lint'),
 
   -- Treesitter 
   require('config.treesitter'),
