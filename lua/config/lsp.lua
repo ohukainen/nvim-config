@@ -60,9 +60,8 @@ return {
     local servers = {
       clangd = {},
       pyright = {},
-      gopls = {},
-      rust_analyzer = {},
-      ts_ls = {},
+      ruff = {},
+      mypy = {},
 
       lua_ls = {
         -- cmd = {...},

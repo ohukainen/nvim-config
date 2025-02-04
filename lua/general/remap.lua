@@ -27,7 +27,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>h', function() vim.diagnostic.show() end)
 vim.keymap.set('n', '<leader>b', function() vim.diagnostic.hide() end)
 
--- Quickfixlist 
+-- Quickfixlist
 vim.keymap.set('n', '<leader>k', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>cnext<CR>zz')
 
