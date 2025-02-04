@@ -1,8 +1,11 @@
 return {
   -- NOTE: Im trying out a light theme cause i hate my eyes
+
   'folke/tokyonight.nvim',
+  priority = 1000,
   init = function()
     vim.cmd.colorscheme('tokyonight-day')
+    -- vim.cmd.colorscheme('tokyonight-night')
 
     -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
     -- vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' })
