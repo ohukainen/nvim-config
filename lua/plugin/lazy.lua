@@ -26,8 +26,9 @@ require('lazy').setup({
   require('config.autocomplete'),
   require('config.lint'),
 
-  -- Treesitter 
+  -- Treesitter and Visual Aid
   require('config.treesitter'),
+  require('config.indent'),
 
   -- Colorscheme
   require('config.colorscheme'),
