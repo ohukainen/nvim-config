@@ -17,6 +17,7 @@ return {
     vim.keymap.set('n', '<C-k>', function() harpoon:list():select(3) end)
     vim.keymap.set('n', '<C-l>', function() harpoon:list():select(4) end)
     vim.keymap.set('n', '<C-;>', function() harpoon:list():select(5) end)
+    -- NOTE: To make <C-;> work, you might need to configure your terminal to handle this input properly
 
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set('n', '<C-S-P>', function() harpoon:list():prev() end)
