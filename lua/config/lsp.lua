@@ -58,11 +58,19 @@ return {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
+      -- C/C++
       clangd = {},
+      cmake = {},
+
+      -- Python 
       pyright = {},
       ruff = {},
       mypy = {},
 
+      -- Bash 
+      bashls = {},
+
+      -- Lua 
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
