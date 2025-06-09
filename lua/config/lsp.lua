@@ -70,6 +70,7 @@ return {
       -- Bash 
       bashls = {},
 
+      -- Lua 
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
