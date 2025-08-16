@@ -34,7 +34,7 @@ require('lazy').setup({
   require('config.colorscheme'),
 
   -- Other
-  { 'lewis6991/gitsigns.nvim', signcolumn = false },
+  { 'lewis6991/gitsigns.nvim'},
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   require('config.mini'),
 })
