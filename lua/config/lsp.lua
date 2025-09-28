@@ -60,18 +60,9 @@ return {
     local servers = {
       -- C/C++
       clangd = {},
-      cmake = {},
 
-      -- CSharp 
-      omnisharp = {},
-
-      -- Python 
-      pyright = {},
-      ruff = {},
-      mypy = {},
-
-      -- Bash 
-      bashls = {},
+      -- Rust
+      rust_analyzer = {},
 
       -- Lua 
       lua_ls = {
