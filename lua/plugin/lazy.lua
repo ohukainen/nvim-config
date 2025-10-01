@@ -24,11 +24,9 @@ require('lazy').setup({
   { 'Bilal2453/luvit-meta', lazy = true },
   require('config.lsp'),
   require('config.autocomplete'),
-  require('config.lint'),
 
   -- Treesitter and Visual Aid
   require('config.treesitter'),
-  require('config.indent'),
 
   -- Colorscheme
   require('config.colorscheme'),
