@@ -7,8 +7,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  desc = 'Sets intendation rules for luafiles',
-  pattern = 'lua',
+  desc = 'Sets intendation rules for luafiles and css',
+  pattern = {'lua', 'css', 'jsonc'},
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
