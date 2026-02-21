@@ -9,7 +9,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.showmode = false
 vim.opt.cursorline = false
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = { '80', '120' }
 
 -- Behaviour
 vim.opt.wrap = false

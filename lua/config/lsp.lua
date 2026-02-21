@@ -64,6 +64,9 @@ return {
       -- Rust
       rust_analyzer = {},
 
+      -- Go
+      gopls = {},
+
       -- Lua 
       lua_ls = {
         -- cmd = {...},
