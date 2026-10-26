@@ -6,5 +6,3 @@ require('editorconfig').properties.insert_final_newline = function(bufnr, value,
     vim.bo[bufnr].fixendofline = false
   end
 end
-
-return {}

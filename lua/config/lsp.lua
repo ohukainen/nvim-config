@@ -101,7 +101,6 @@ local servers = {
           callSnippet = 'Replace',
         },
         format = { enable = false },
-        -- diagnostics = { disable = { 'missing-fields' } },
       },
     },
   },
@@ -113,6 +112,7 @@ if overrides and overrides.servers then
   servers = vim.tbl_deep_extend('force', servers, overrides.servers)
 end
 
+-- mason-lspconfig only translates lspconfig server names for mason-tool-installer
 require('mason').setup {}
 require('mason-lspconfig').setup { automatic_enable = false }
 require('mason-tool-installer').setup { ensure_installed = vim.tbl_keys(servers) }

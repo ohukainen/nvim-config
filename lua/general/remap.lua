@@ -38,5 +38,3 @@ vim.keymap.set('i', '{<CR>', '{<CR>}<Esc>ko')
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('c', '!!', 'term ')
-
-return {}

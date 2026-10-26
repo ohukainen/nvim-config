@@ -28,5 +28,3 @@ local switch_hints = function()
   vim.notify('Hint/info diagnostics switched ' .. (shown and 'on' or 'off'))
 end
 vim.keymap.set('n', '<leader>i', switch_hints, { desc = 'Toggle hint/[I]nfo diagnostics' })
-
-return {}

@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Apperance
+-- Appearance
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
@@ -35,5 +35,3 @@ vim.g.have_nerd_font = true
 vim.opt.mouse = 'a'
 vim.opt.updatetime = 250
 vim.opt.isfname:append '@-@'
-
-return {}
