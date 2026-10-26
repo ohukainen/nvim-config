@@ -107,6 +107,12 @@ local servers = {
   },
 }
 
+-- Merge server overrides from lua/local.lua, which init.lua loads when it exists
+local overrides = package.loaded['local']
+if overrides and overrides.servers then
+  servers = vim.tbl_deep_extend('force', servers, overrides.servers)
+end
+
 require('mason').setup {}
 require('mason-lspconfig').setup { automatic_enable = false }
 require('mason-tool-installer').setup { ensure_installed = vim.tbl_keys(servers) }
