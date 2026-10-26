@@ -1,4 +1,5 @@
 require('general.settings')
 require('general.editorconfig')
+require('general.diagnostics')
 require('general.remap')
 require('general.autocmd')

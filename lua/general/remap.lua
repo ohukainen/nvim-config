@@ -20,8 +20,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>rw', [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
 -- Diagnostics
-vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev({severity = 'ERROR'}) vim.cmd('normal! zz') end, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next({severity = 'ERROR'}) vim.cmd('normal! zz') end, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) vim.cmd('normal! zz') end, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count =  1, severity = vim.diagnostic.severity.ERROR }) vim.cmd('normal! zz') end, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>h', function() vim.diagnostic.show() end)
