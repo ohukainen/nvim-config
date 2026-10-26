@@ -32,22 +32,11 @@ local function treesitter_try_attach(buf, language)
 end
 
 -- Filetypes and parser names differ (cs -> c_sharp), so resolve the parser per buffer
-local available_parsers = require('nvim-treesitter').get_available()
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
-    local buf, filetype = args.buf, args.match
-
-    local language = vim.treesitter.language.get_lang(filetype)
+    local language = vim.treesitter.language.get_lang(args.match)
     if not language then return end
 
-    local installed_parsers = require('nvim-treesitter').get_installed 'parsers'
-
-    if vim.tbl_contains(installed_parsers, language) then
-      treesitter_try_attach(buf, language)
-    elseif vim.tbl_contains(available_parsers, language) then
-      require('nvim-treesitter').install(language):await(function() treesitter_try_attach(buf, language) end)
-    else
-      treesitter_try_attach(buf, language)
-    end
+    treesitter_try_attach(args.buf, language)
   end,
 })
