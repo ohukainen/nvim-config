@@ -1,2 +1,4 @@
+vim.loader.enable()
+
 require('general')
-require('plugin.lazy')
+require('plugin.pack')
