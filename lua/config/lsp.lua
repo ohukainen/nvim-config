@@ -1,7 +1,6 @@
 vim.pack.add {
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/mason-org/mason.nvim',
-  'https://github.com/mason-org/mason-lspconfig.nvim',
   'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
   'https://github.com/j-hui/fidget.nvim',
 }
@@ -112,10 +111,18 @@ if overrides and overrides.servers then
   servers = vim.tbl_deep_extend('force', servers, overrides.servers)
 end
 
--- mason-lspconfig only translates lspconfig server names for mason-tool-installer
+-- Mason package names with pinned versions, installed on startup if the installed version differs
+local mason_packages = {
+  { 'clangd', version = '23.1.0' },
+  { 'rust-analyzer', version = '2026-10-19' },
+  { 'gopls', version = 'v0.23.0' },
+  { 'roslyn-language-server', version = '5.12.0-1.26426.8' },
+  { 'lua-language-server', version = '3.19.2' },
+  { 'stylua', version = 'v2.6.0' },
+}
+
 require('mason').setup {}
-require('mason-lspconfig').setup { automatic_enable = false }
-require('mason-tool-installer').setup { ensure_installed = vim.tbl_keys(servers) }
+require('mason-tool-installer').setup { ensure_installed = mason_packages }
 
 for name, server in pairs(servers) do
   vim.lsp.config(name, server)
