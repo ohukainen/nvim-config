@@ -126,5 +126,14 @@ require('mason-tool-installer').setup { ensure_installed = mason_packages }
 
 for name, server in pairs(servers) do
   vim.lsp.config(name, server)
+  local root_dir, root_markers = vim.lsp.config[name].root_dir, vim.lsp.config[name].root_markers
+  vim.lsp.config(name, {
+    -- fugitive buffers are git snapshots with no file on disk
+    root_dir = function(bufnr, on_dir)
+      if vim.api.nvim_buf_get_name(bufnr):match('^fugitive:[\\/][\\/]') then return end
+      if type(root_dir) == 'function' then return root_dir(bufnr, on_dir) end
+      on_dir(root_dir or vim.fs.root(bufnr, root_markers or {}))
+    end,
+  })
   vim.lsp.enable(name)
 end
