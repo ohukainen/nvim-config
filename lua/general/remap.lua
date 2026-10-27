@@ -24,7 +24,7 @@ vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, severity 
 vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count =  1, severity = vim.diagnostic.severity.ERROR }) vim.cmd('normal! zz') end, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>h', function() vim.diagnostic.show() end)
+vim.keymap.set('n', '<leader>h', function() if not vim.diagnostic.is_enabled({ bufnr = 0 }) then vim.diagnostic.enable(true, { bufnr = 0 }) end vim.diagnostic.show() end)
 vim.keymap.set('n', '<leader>b', function() vim.diagnostic.hide() end)
 
 -- Quickfixlist

@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 -- Personal favorites
 require('config.harpoon')
 vim.pack.add { 'https://github.com/mbbill/undotree' } vim.keymap.set('n', '<leader>n', vim.cmd.UndotreeToggle)
-vim.pack.add { 'https://github.com/tpope/vim-fugitive' } vim.keymap.set('n', '<leader>g', ':Git ')
+require('config.fugitive')
 
 -- Telescope
 require('config.telescope')
