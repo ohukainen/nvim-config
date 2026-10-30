@@ -25,6 +25,24 @@ local function qf_vdiff(step)
   vim.api.nvim_set_current_win(file_win)
 end
 
-vim.keymap.set('n', ']r', function() qf_vdiff(1) end, { desc = 'Next quickfix change in [R]eview diff' })
-vim.keymap.set('n', '[r', function() qf_vdiff(-1) end, { desc = 'Previous quickfix change in [R]eview diff' })
+vim.keymap.set('n', '<C-n>', function() qf_vdiff(1) end, { desc = 'Next quickfix change in [R]eview diff' })
+vim.keymap.set('n', '<C-p>', function() qf_vdiff(-1) end, { desc = 'Previous quickfix change in [R]eview diff' })
 vim.keymap.set('n', '<leader>rr', function() qf_vdiff(0) end, { desc = 'Current quickfix change in [R]eview diff' })
+
+-- :Review reviews local changes against the index, :Review <rev> reviews HEAD against its merge-base with <rev>
+vim.api.nvim_create_user_command('Review', function(opts)
+  if opts.args == '' then
+    vim.g.review_base = nil
+    vim.cmd('Git add -N .')
+    vim.cmd('Git difftool --name-only')
+  else
+    local result = vim.system({ 'git', 'merge-base', opts.args, 'HEAD' }, { text = true }):wait()
+    if result.code ~= 0 then
+      vim.notify(result.stderr, vim.log.levels.ERROR)
+      return
+    end
+    vim.g.review_base = vim.trim(result.stdout)
+    vim.cmd('Git difftool --name-only ' .. vim.g.review_base)
+  end
+  qf_vdiff(0)
+end, { nargs = '?', desc = 'Review local changes, or HEAD against its merge-base with a revision' })
