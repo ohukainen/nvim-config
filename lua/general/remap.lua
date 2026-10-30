@@ -31,6 +31,24 @@ vim.keymap.set('n', '<leader>b', function() vim.diagnostic.hide() end)
 vim.keymap.set('n', '<leader>k', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>cnext<CR>zz')
 
+-- Window navigation
+vim.keymap.set('n', '<C-h>', function() vim.cmd.wincmd('h') end)
+vim.keymap.set('n', '<C-j>', function() vim.cmd.wincmd('j') end)
+vim.keymap.set('n', '<C-k>', function() vim.cmd.wincmd('k') end)
+vim.keymap.set('n', '<C-l>', function() vim.cmd.wincmd('l') end)
+
+-- Window resizing: grow the current window in that direction, shrink when nothing is there
+local function resize_towards(direction)
+  local vertical = direction == 'h' or direction == 'l'
+  local step = (vertical and 5 or 3) * vim.v.count1
+  local has_neighbour = vim.fn.winnr(direction) ~= vim.fn.winnr()
+  vim.cmd((vertical and 'vertical resize ' or 'resize ') .. (has_neighbour and '+' or '-') .. step)
+end
+
+for _, direction in ipairs { 'h', 'j', 'k', 'l' } do
+  vim.keymap.set('n', '<C-w><C-' .. direction .. '>', function() resize_towards(direction) end)
+end
+
 -- Other
 vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('n', 'Q', '<nop>')
