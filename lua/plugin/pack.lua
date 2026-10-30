@@ -36,7 +36,6 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 -- NOTE: Installed plugins. Anything that does not fit on one line gets a file.
 -- Personal favorites
-require('config.harpoon')
 vim.pack.add { 'https://github.com/mbbill/undotree' } vim.keymap.set('n', '<leader>n', vim.cmd.UndotreeToggle)
 require('config.fugitive')
 
