@@ -114,7 +114,7 @@ end
 -- Mason package names with pinned versions, installed on startup if the installed version differs
 local mason_packages = {
   { 'clangd', version = '23.1.0' },
-  { 'rust-analyzer', version = '2026-10-19' },
+  { 'rust-analyzer', version = '2026-11-02' },
   { 'gopls', version = 'v0.23.0' },
   { 'roslyn-language-server', version = '5.12.0-1.26426.8' },
   { 'lua-language-server', version = '3.19.2' },
